@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 from langchain_huggingface import ChatHuggingFace,HuggingFaceEndpoint
 import re
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.prompts import PromptTemplate
 from youtube_transcript_api import YouTubeTranscriptApi
