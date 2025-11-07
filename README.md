@@ -41,7 +41,7 @@ The model returns a context-aware answer based on the video content.
 To run this project locally:
 
 # Clone the repository
-git clone YOUR_GITHUB_REPO_LINK_HERE
+git clone https://github.com/Moin36532/yt_chatbot
 
 # Navigate into the project folder
 cd YOUR_PROJECT_FOLDER_NAME
