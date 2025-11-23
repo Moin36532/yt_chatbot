@@ -58,7 +58,6 @@ def extract_youtube_id(input_data):
         return None
 Yt_video_id = RunnableLambda(extract_youtube_id)
 
-from youtube_transcript_api import YouTubeTranscriptApi, WebshareProxyConfig
 
 proxies = [
     ("142.111.48.253", 7030),
