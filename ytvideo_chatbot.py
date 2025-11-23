@@ -71,7 +71,7 @@ proxies = [
 USERNAME = "knrunqzl"
 PASSWORD = "y9l7ckytt8q6"
 
-def fetch_transcript_with_all_proxies(video_id):
+def yt_transcript(video_id):
     for ip, port in proxies:
         print(f"Trying proxy {ip}:{port} ...")
         try:
