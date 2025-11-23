@@ -25,7 +25,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.prompts import PromptTemplate
-from youtube_transcript_api import YouTubeTranscriptApi,WebshareProxyConfig
+from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.proxies import WebshareProxyConfig
 from langchain_core.runnables import RunnableLambda
 import warnings
 warnings.filterwarnings('ignore')
