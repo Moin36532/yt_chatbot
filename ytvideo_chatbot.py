@@ -69,8 +69,8 @@ proxies = [
     ("107.172.163.27", 6543),
 ]
 
-USERNAME = "your_username_here"
-PASSWORD = "your_password_here"
+USERNAME = "knrunqzl"
+PASSWORD = "y9l7ckytt8q6"
 
 def fetch_transcript_with_all_proxies(video_id):
     for ip, port in proxies:
