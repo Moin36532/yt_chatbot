@@ -63,7 +63,7 @@ def yt_transcript(video_id):
         proxy_username="knrunqzl",
         proxy_password="y9l7ckytt8q6",
     )
-)
+    )
 
   transcript = ytt_api.fetch(video_id)
   sent = [str(i.text)for i in transcript]
