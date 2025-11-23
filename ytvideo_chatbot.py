@@ -58,15 +58,47 @@ def extract_youtube_id(input_data):
         return None
 Yt_video_id = RunnableLambda(extract_youtube_id)
 
-def yt_transcript(video_id):
-    ytt_api = YouTubeTranscriptApi(
-        proxy_config=WebshareProxyConfig(
-            proxy_username="knrunqzl",
-            proxy_password="y9l7ckytt8q6",
-        )
-    )
+from youtube_transcript_api import YouTubeTranscriptApi, WebshareProxyConfig
 
-    transcript = ytt_api.fetch(video_id)
+proxies = [
+    ("142.111.48.253", 7030),
+    ("31.59.20.176", 6754),
+    ("23.95.150.145", 6114),
+    ("198.23.239.134", 6540),
+    ("45.38.107.97", 6014),
+    ("107.172.163.27", 6543),
+]
+
+USERNAME = "your_username_here"
+PASSWORD = "your_password_here"
+
+def fetch_transcript_with_all_proxies(video_id):
+    for ip, port in proxies:
+        print(f"Trying proxy {ip}:{port} ...")
+        try:
+            config = WebshareProxyConfig(
+                proxy_host=ip,
+                proxy_port=port,
+                proxy_username=USERNAME,
+                proxy_password=PASSWORD
+            )
+
+            yt = YouTubeTranscriptApi(proxy_config=config)
+            transcript = yt.fetch(video_id)
+
+            print("SUCCESS with:", ip, port)
+            return " ".join([t["text"] for t in transcript])
+
+        except Exception as e:
+            print(f"Failed on {ip}:{port} => {e}")
+
+    raise Exception("All proxies failed")
+
+# Example
+# result = fetch_transcript_with_all_proxies("3hxE7Af98AI")
+# print(result)
+
+
     sent = [str(i["text"]) for i in transcript]
     transcript_full = " ".join(sent)
     return transcript_full
