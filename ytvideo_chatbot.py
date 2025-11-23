@@ -59,16 +59,17 @@ Yt_video_id = RunnableLambda(extract_youtube_id)
 
 def yt_transcript(video_id):
     ytt_api = YouTubeTranscriptApi(
-    proxy_config=WebshareProxyConfig(
-        proxy_username="knrunqzl",
-        proxy_password="y9l7ckytt8q6",
-    )
+        proxy_config=WebshareProxyConfig(
+            proxy_username="knrunqzl",
+            proxy_password="y9l7ckytt8q6",
+        )
     )
 
-  transcript = ytt_api.fetch(video_id)
-  sent = [str(i.text)for i in transcript]
-  transcript_full = " ".join(sent)
-  return transcript_full
+    transcript = ytt_api.fetch(video_id)
+    sent = [str(i["text"]) for i in transcript]
+    transcript_full = " ".join(sent)
+    return transcript_full
+
 transcripter = RunnableLambda(yt_transcript)
 # transcript = transcripter.invoke(video_id)
 # print(transcript)
